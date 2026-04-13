@@ -1,4 +1,11 @@
-com.hyper.hotel.service;
+package com.hyper.hotel.service;
+
+import com.hyper.hotel.model.Cliente;
+import com.hyper.hotel.repository.ClienteRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ClienteService {

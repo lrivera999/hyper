@@ -1,4 +1,11 @@
-com.hyper.hotel.controller;
+package com.hyper.hotel.controller;
+
+import com.hyper.hotel.model.Cliente;
+import com.hyper.hotel.service.ClienteService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/clientes")
