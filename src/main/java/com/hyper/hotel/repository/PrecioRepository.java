@@ -1,0 +1,4 @@
+com.hyper.hotel.repository;
+
+public interface PrecioRepository extends JpaRepository<Precio, Integer> {}
+public interface HorarioRepository extends JpaRepository<Horario, Integer> {}

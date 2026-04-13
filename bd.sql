@@ -1,0 +1,7 @@
+create table clientes(idCliente integer, nombres varchar(20), apellidos varchar(20), edad int, estado varchar(1), primary key(idCliente));
+create table reservas(idReserva integer, numHuesped integer, fechaInicio varchar(19), fechaFin varchar(19), estado varchar(1), primary key(idReserva));
+create table habitaciones(idHabitacion integer, piso int, habitacion int, menaje varchar(200), estado varchar(1), primary key(idHabitacion));
+create table horarios(idHorario integer, idHabitacion integer, horaIngreso varchar(10), horaSalida varchar(10), estado varchar(1), primary key(idHorario), foreign key (idHabitacion) references habitaciones(idHabitacion));
+create table precios(idPrecio integer, idReserva integer, idHabitacion integer, esPromocion int, esFeriado int, tarifaAplicada int, estado varchar(1), primary key(idPrecio), foreign key (idReserva) references reservas(idReserva), foreign key (idHabitacion) references habitaciones(idHabitacion));
+create table reservaXclientes(idReservaCliente integer, idReserva integer, idCliente integer, estado varchar(1), primary key(idReservaCliente), foreign key (idReserva) references reservas(idReserva), foreign key (idCliente) references clientes(idCliente));
+create table reservaXclienteXHab(idReservaCliHab integer, idReservaCliente integer, estado varchar(1), primary key(idReservaCliHab), foreign key(idReservaCliente) references reservaXclientes(idReservaCliente));
