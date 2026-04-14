@@ -1,14 +1,16 @@
 package com.hyper.hotel.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "reservaXclientes")
 public class ReservaXCliente {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "gen_rxc")
+    @TableGenerator(name = "gen_rxc", table = "id_gen",
+            pkColumnName = "gen_name", valueColumnName = "gen_val",
+            pkColumnValue = "reservaXclientes", allocationSize = 1)
     private Integer idReservaCliente;
 
     private Integer idReserva;

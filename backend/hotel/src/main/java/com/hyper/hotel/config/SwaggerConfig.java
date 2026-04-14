@@ -1,7 +1,9 @@
 package com.hyper.hotel.config;
 
+import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -14,6 +16,13 @@ public class SwaggerConfig {
                 .info(new Info()
                         .title("API Hotel")
                         .version("1.0")
-                        .description("Reservas Hotel"));
+                        .description("API REST para reservas de hotel — autenticación JWT vía cabecera Authorization: Bearer <token>"))
+                .components(new Components()
+                        .addSecuritySchemes("bearerAuth",
+                                new SecurityScheme()
+                                        .type(SecurityScheme.Type.HTTP)
+                                        .scheme("bearer")
+                                        .bearerFormat("JWT")
+                                        .description("Ingrese el token JWT obtenido desde POST /auth/login")));
     }
 }
